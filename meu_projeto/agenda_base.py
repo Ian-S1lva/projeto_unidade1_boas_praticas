@@ -1,3 +1,4 @@
+
 # ========================================================================
 # Para fácil manutenção em um único local, optou-se por implementar as
 # regras de negócios relativas a horario e duracao em um único lugar
@@ -128,16 +129,13 @@ class gerenciador_de_atendimentos:
         duracao: Duração do atendimento em minutos.
 
     Returns:
-        None. Imprime uma mensagem informando se o atendimento foi
-        adicionado ou se o horário está ocupado.
+        None. Imprime uma mensagem informando se o atendimento foi adicionado ou se o horário está ocupado.
 
     Raises:
         ValueError: Se algum argumento obrigatório for None.
-        ValueError: Se o horário de início estiver fora do intervalo
-            permitido para agendamentos.
+        ValueError: Se o horário de início estiver fora do intervalo permitido para agendamentos.
         ValueError: Se a duração não estiver entre os valores aceitos.
-        ValueError: Se o atendimento ultrapassar o horário limite
-            de funcionamento.
+        ValueError: Se o atendimento ultrapassar o horário limite de funcionamento.
     """
     argumentos = {
         "paciente":paciente,
@@ -195,12 +193,9 @@ class gerenciador_de_atendimentos:
 
     Raises:
         ValueError: Se algum argumento obrigatório for None.
-        ValueError: Se o horário atual ou o novo horário estiver fora
-            do intervalo permitido para agendamentos.
-        ValueError: Se a data atual ou a nova data estiver em formato
-            inválido ou representar uma data inexistente.
-        ValueError: Se o atendimento, considerando sua duração original,
-            ultrapassar o horário limite de funcionamento.
+        ValueError: Se o horário atual ou o novo horário estiver fora do intervalo permitido para agendamentos.
+        ValueError: Se a data atual ou a nova data estiver em formato inválido ou representar uma data inexistente.
+        ValueError: Se o atendimento, considerando sua duração original, ultrapassar o horário limite de funcionamento.
     """
     argumentos = {
         "paciente":paciente, 
@@ -247,8 +242,7 @@ class gerenciador_de_atendimentos:
 
     Raises:
         ValueError: Se a data não for informada (None).
-        ValueError: Se a data estiver em formato inválido ou representar
-            uma data inexistente.
+        ValueError: Se a data estiver em formato inválido ou representar uma data inexistente.
     """
     argumentos = [data]
 
@@ -262,10 +256,10 @@ class gerenciador_de_atendimentos:
       if atendimento.data == data:
         print(f"{atendimento.horario} {atendimento.paciente} {atendimento.medico} MARCADO")
 
-
-lista_atendimentos = gerenciador_de_atendimentos()
-lista_atendimentos.adicionar_atendimento("Ana", "Dr. Silva", "2026-10-05", HORARIOS["NOVE_DA_MANHA"], 30)
-lista_atendimentos.adicionar_atendimento("Bruno", "Dr. Silva", "2026-10-05", HORARIOS["NOVE_DA_MANHA"], 30)
-lista_atendimentos.adicionar_atendimento("Carla", "Dra. Souza", "2026-10-05", HORARIOS["DUAS_DA_TARDE"], 60)
-lista_atendimentos.remarca_atendimento("Ana", "2026-10-05", HORARIOS["NOVE_DA_MANHA"], "2026-10-06", HORARIOS["DEZ_DA_MANHA"])
-lista_atendimentos.lista("2026-10-05")
+if __name__ == "__main__":
+  lista_atendimentos = gerenciador_de_atendimentos()
+  lista_atendimentos.adicionar_atendimento("Ana", "Dr. Silva", "2026-10-05", HORARIOS["NOVE_DA_MANHA"], 30)
+  lista_atendimentos.adicionar_atendimento("Bruno", "Dr. Silva", "2026-10-05", HORARIOS["NOVE_DA_MANHA"], 30)
+  lista_atendimentos.adicionar_atendimento("Carla", "Dra. Souza", "2026-10-05", HORARIOS["DUAS_DA_TARDE"], 60)
+  lista_atendimentos.remarca_atendimento("Ana", "2026-10-05", HORARIOS["NOVE_DA_MANHA"], "2026-10-06", HORARIOS["DEZ_DA_MANHA"])
+  lista_atendimentos.lista("2026-10-05")
